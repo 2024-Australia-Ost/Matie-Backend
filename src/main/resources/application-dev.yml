@@ -1,4 +1,7 @@
 spring:
+  config:
+    activate:
+      on-profile: dev
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/matie?serverTimezone=UTC
@@ -8,9 +11,6 @@ spring:
   sql:
     init:
       mode: always
-  h2:
-    console:
-      enabled: true
   jpa:
     hibernate:
       ddl-auto: create

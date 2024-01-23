@@ -182,3 +182,7 @@ replay_pid*
 
 # .env
 src/main/resources/application.properties
+
+# application-dev.yml
+src/main/resources/application-dev.yml
+src/main/resources/application-test.yml
