@@ -1,5 +1,6 @@
 package com.ost.matie.dto.community;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ost.matie.domain.community.Community;
 import com.ost.matie.domain.point.Point;
 import com.ost.matie.domain.user.Users;
@@ -16,6 +17,8 @@ public class CommunityResponse {
     private final String type;
     private final Long agree;
     private final Long disagree;
+
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDateTime createdDate;
     private final UserResponse creatorUser;
 

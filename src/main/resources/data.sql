@@ -30,3 +30,10 @@ INSERT INTO product (name, description, point, category_id) VALUES ('상의', '�
 INSERT INTO product (name, description, point, category_id) VALUES ('잡화', '잡화입니다', 100, 2);
 
 INSERT INTO challenge (title, description, point, type) VALUES ('만보기 100번 걷기', '설명입니다.', 100, 1);
+
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);
+INSERT INTO community (title, description, type, created_date, user_id) VALUES ('Are eggs general waste?', 'Are eggs general waste? My mother says its general waste, but there are foreign substances in it. Why is it called general waste?', 'Q&A', '2023-10-20 00:00:00', 1);

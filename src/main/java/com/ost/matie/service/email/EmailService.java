@@ -21,7 +21,7 @@ public class EmailService {
     private String authKey;
 
     public void sendMessage(AddEmailRequest request) {
-        if (redisUtil.existData(request.getEmailAddress())) {
+        if (!redisUtil.existData(request.getEmailAddress())) {
             redisUtil.deleteData(request.getEmailAddress());
         }
 
