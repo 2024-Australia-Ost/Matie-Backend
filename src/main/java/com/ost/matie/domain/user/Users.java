@@ -71,8 +71,7 @@ public class Users extends BaseTimeEntity {
         this.pw = pw;
     }
 
-    public void update(String name, String pw) {
-        this.name = name;
+    public void update(String pw) {
         this.pw = pw;
     }
 }

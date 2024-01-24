@@ -1,5 +1,6 @@
 package com.ost.matie.dto.comment;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ost.matie.domain.comment.Comment;
 import com.ost.matie.domain.community.Community;
 import com.ost.matie.domain.user.Users;
@@ -16,6 +17,7 @@ public class CommentResponse {
     private final String description;
     private final Long upvotes;
     private final List<Long> upvoteUserList;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private final LocalDateTime createdDate;
     private final LocalDateTime modifiedDate;
     private final UserResponse user;
