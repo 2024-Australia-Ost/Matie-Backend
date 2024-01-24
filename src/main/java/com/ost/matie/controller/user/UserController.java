@@ -67,10 +67,10 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
-    @PutMapping("/users/{id}")
-    public ResponseEntity<UserResponse> updateUser(@PathVariable Long id,
+    @PutMapping("/users/{email}")
+    public ResponseEntity<UserResponse> updateUser(@PathVariable String email,
                                             @Valid @RequestBody UpdateUserRequest request) {
-        Users users = userService.update(id, request);
+        Users users = userService.update(email, request);
         return ResponseEntity.ok().body(new UserResponse(users));
     }
 

@@ -52,15 +52,9 @@ public class UserService {
 
 
     @Transactional
-    public Users update(Long id, UpdateUserRequest request) {
-        Users users = userRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("사용자를 찾을 수 없습니다. (id : " + id + ")"));
-
-        users.update(
-                request.getName(),
-                request.getPw()
-        );
-
+    public Users update(String email, UpdateUserRequest request) {
+        Users users = userRepository.findByEmail(email);
+        users.update(bCryptPasswordEncoder.encode(request.getPw()));
         return users;
     }
 }
