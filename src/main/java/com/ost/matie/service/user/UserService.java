@@ -6,7 +6,7 @@ import com.ost.matie.dto.user.LoginUserRequest;
 import com.ost.matie.dto.user.UpdateUserRequest;
 import com.ost.matie.exception.DuplicateException;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.UserRepository;
+import com.ost.matie.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;

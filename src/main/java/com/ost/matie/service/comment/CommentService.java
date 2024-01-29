@@ -5,7 +5,7 @@ import com.ost.matie.dto.comment.AddCommentRequest;
 import com.ost.matie.dto.comment.UpdateCommentRequest;
 import com.ost.matie.exception.NotFoundException;
 import com.ost.matie.repository.comment.CommentRepository;
-import com.ost.matie.repository.UserRepository;
+import com.ost.matie.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

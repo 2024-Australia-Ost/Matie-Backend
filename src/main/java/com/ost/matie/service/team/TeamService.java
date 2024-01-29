@@ -4,12 +4,11 @@ import com.ost.matie.domain.team.Team;
 import com.ost.matie.dto.team.UpdateTeamRequest;
 import com.ost.matie.exception.NotFoundException;
 import com.ost.matie.repository.team.TeamRepository;
-import com.ost.matie.repository.UserRepository;
+import com.ost.matie.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
