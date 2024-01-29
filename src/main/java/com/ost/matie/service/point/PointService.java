@@ -2,7 +2,7 @@ package com.ost.matie.service.point;
 
 import com.ost.matie.domain.point.Point;
 import com.ost.matie.dto.point.AddPointRequest;
-import com.ost.matie.repository.PointRepository;
+import com.ost.matie.repository.point.PointRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

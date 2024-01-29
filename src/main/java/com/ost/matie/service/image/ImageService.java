@@ -2,7 +2,7 @@ package com.ost.matie.service.image;
 
 import com.ost.matie.domain.image.Image;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.ImageRepository;
+import com.ost.matie.repository.image.ImageRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

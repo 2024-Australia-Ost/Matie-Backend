@@ -2,7 +2,7 @@ package com.ost.matie.service.product;
 
 import com.ost.matie.domain.product.Product;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.ProductRepository;
+import com.ost.matie.repository.product.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

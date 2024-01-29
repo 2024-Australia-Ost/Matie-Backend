@@ -2,7 +2,7 @@ package com.ost.matie.service.category;
 
 import com.ost.matie.domain.category.Category;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.CategoryRepository;
+import com.ost.matie.repository.category.CategoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

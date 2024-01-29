@@ -2,7 +2,7 @@ package com.ost.matie.service.challenge;
 
 import com.ost.matie.domain.challenge.Challenge;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.ChallengeRepository;
+import com.ost.matie.repository.challenge.ChallengeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

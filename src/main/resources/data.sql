@@ -22,6 +22,7 @@ INSERT INTO team (title, description, start_date, finish_date, point, user_list)
 INSERT INTO team (title, description, start_date, finish_date, point, user_list) VALUES ('title', 'description', '2023-10-20 00:00:00', '2024-01-20 00:00:00', 450, '1');
 INSERT INTO team (title, description, start_date, finish_date, point, user_list) VALUES ('title', 'description', '2023-10-20 00:00:00', '2024-01-30 00:00:00', 200, '1');
 INSERT INTO team (title, description, start_date, finish_date, point, user_list) VALUES ('title', 'description', '2023-10-20 00:00:00', '2024-02-01 00:00:00', 150, '1');
+INSERT INTO team (title, description, start_date, finish_date, point, user_list) VALUES ('title', 'description', '2024-02-01 00:00:00', '2024-02-20 00:00:00', 150, '1');
 
 INSERT INTO walk (count, date, user_id) VALUES (100, '2023-10-20', 1);
 INSERT INTO walk (count, date, user_id) VALUES (200, '2023-11-20', 1);

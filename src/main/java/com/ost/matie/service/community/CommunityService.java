@@ -4,7 +4,7 @@ import com.ost.matie.domain.community.Community;
 import com.ost.matie.dto.community.AddCommunityRequest;
 import com.ost.matie.dto.community.UpdateCommunityRequest;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.CommunityRepository;
+import com.ost.matie.repository.community.CommunityRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
