@@ -55,3 +55,7 @@ tasks.named('asciidoctor') {
 	inputs.dir snippetsDir
 	dependsOn test
 }
+
+clean {
+	delete file('src/main/generated')
+}
