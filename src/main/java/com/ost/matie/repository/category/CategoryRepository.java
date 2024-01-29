@@ -1,4 +1,4 @@
-package com.ost.matie.repository;
+package com.ost.matie.repository.category;
 
 import com.ost.matie.domain.category.Category;
 import org.springframework.data.jpa.repository.JpaRepository;

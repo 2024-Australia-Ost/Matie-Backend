@@ -5,7 +5,7 @@ import com.ost.matie.dto.clear.AddClearRequest;
 import com.ost.matie.dto.clear.UpdateClearRequest;
 import com.ost.matie.exception.DuplicateException;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.ChallengeRepository;
+import com.ost.matie.repository.challenge.ChallengeRepository;
 import com.ost.matie.repository.ClearRepository;
 import com.ost.matie.repository.TeamRepository;
 import jakarta.transaction.Transactional;
