@@ -4,7 +4,7 @@ import com.ost.matie.domain.comment.Comment;
 import com.ost.matie.dto.comment.AddCommentRequest;
 import com.ost.matie.dto.comment.UpdateCommentRequest;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.CommentRepository;
+import com.ost.matie.repository.comment.CommentRepository;
 import com.ost.matie.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
