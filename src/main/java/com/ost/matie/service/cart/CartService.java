@@ -5,7 +5,7 @@ import com.ost.matie.dto.cart.AddCartRequest;
 import com.ost.matie.dto.cart.UpdateCartRequest;
 import com.ost.matie.exception.*;
 import com.ost.matie.repository.cart.CartRepository;
-import com.ost.matie.repository.ProductRepository;
+import com.ost.matie.repository.product.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
