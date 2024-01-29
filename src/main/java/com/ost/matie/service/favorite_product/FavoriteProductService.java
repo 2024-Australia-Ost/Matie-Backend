@@ -4,7 +4,7 @@ import com.ost.matie.domain.favorite_product.FavoriteProduct;
 import com.ost.matie.dto.favorite_product.AddFavoriteProductRequest;
 import com.ost.matie.dto.favorite_product.UpdateFavoriteProductRequest;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.FavoriteProductRepository;
+import com.ost.matie.repository.favorite_product.FavoriteProductRepository;
 import com.ost.matie.repository.ProductRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
