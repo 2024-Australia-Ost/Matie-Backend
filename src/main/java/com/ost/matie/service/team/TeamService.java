@@ -3,7 +3,7 @@ package com.ost.matie.service.team;
 import com.ost.matie.domain.team.Team;
 import com.ost.matie.dto.team.UpdateTeamRequest;
 import com.ost.matie.exception.NotFoundException;
-import com.ost.matie.repository.TeamRepository;
+import com.ost.matie.repository.team.TeamRepository;
 import com.ost.matie.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +20,7 @@ public class TeamService {
     private final UserRepository userRepository;
 
     public List<Team> findAll() {
-        return teamRepository
-            .findAllByStartDateLessThanEqualAndFinishDateGreaterThanEqualOrderByStartDateAsc(
-                    LocalDateTime.MIN.now(), LocalDateTime.MAX.now()
-            );
+        return teamRepository.findAllByLocalDate();
     }
 
     public List<Team> findUserListInUserId(Long userId) {

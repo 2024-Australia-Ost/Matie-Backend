@@ -7,7 +7,7 @@ import com.ost.matie.exception.DuplicateException;
 import com.ost.matie.exception.NotFoundException;
 import com.ost.matie.repository.challenge.ChallengeRepository;
 import com.ost.matie.repository.clear.ClearRepository;
-import com.ost.matie.repository.TeamRepository;
+import com.ost.matie.repository.team.TeamRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
