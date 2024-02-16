@@ -21,10 +21,6 @@ public class EmailService {
     private String authKey;
 
     public void sendMessage(AddEmailRequest request) {
-        if (!redisUtil.existData(request.getEmailAddress())) {
-            redisUtil.deleteData(request.getEmailAddress());
-        }
-
         authKey = createCode();
 
         SimpleMailMessage message = new SimpleMailMessage();
