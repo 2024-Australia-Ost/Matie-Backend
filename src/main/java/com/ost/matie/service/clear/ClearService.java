@@ -3,8 +3,9 @@ package com.ost.matie.service.clear;
 import com.ost.matie.domain.clear.Clear;
 import com.ost.matie.dto.clear.AddClearRequest;
 import com.ost.matie.dto.clear.UpdateClearRequest;
-import com.ost.matie.exception.DuplicateException;
-import com.ost.matie.exception.NotFoundException;
+import com.ost.matie.exception.ChallengeNotFoundException;
+import com.ost.matie.exception.TeamNotFoundException;
+import com.ost.matie.exception.UserClearDuplicateException;
 import com.ost.matie.repository.challenge.ChallengeRepository;
 import com.ost.matie.repository.clear.ClearRepository;
 import com.ost.matie.repository.team.TeamRepository;
@@ -24,7 +25,7 @@ public class ClearService {
     private final TeamRepository teamRepository;
 
     public Clear save(AddClearRequest request) {
-        if(clearRepository.existsByUserIdAndDate(request.getUser().getId(), LocalDate.now())) throw new DuplicateException("이미 해당 유저의 클리어 여부가 존재합니다. update를 해주세요.");
+        if(clearRepository.existsByUserIdAndDate(request.getUser().getId(), LocalDate.now())) throw UserClearDuplicateException.EXCEPTION;
         checkChallengeAndTeam(request.getChallenge(), request.getTeam());
         return clearRepository.save(request.toEntity());
     }
@@ -48,9 +49,9 @@ public class ClearService {
 
     private void checkChallengeAndTeam(List<Long> challenges, List<Long> teams) {
         for(Long challengeId : challenges)
-            if(!challengeRepository.existsById(challengeId)) throw new NotFoundException("데일리 챌린지 정보를 찾을 수 없습니다. (id : " + challengeId + ")");
+            if(!challengeRepository.existsById(challengeId)) throw ChallengeNotFoundException.EXCEPTION;
 
         for(Long teamId : teams)
-            if(!teamRepository.existsById(teamId)) throw new NotFoundException("그룹 챌린지 정보를 찾을 수 없습니다.");
+            if(!teamRepository.existsById(teamId)) throw TeamNotFoundException.EXCEPTION;
     }
 }

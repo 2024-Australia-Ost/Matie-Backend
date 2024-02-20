@@ -2,7 +2,7 @@ package com.ost.matie.service.email;
 
 import com.ost.matie.config.RedisUtil;
 import com.ost.matie.dto.email.AddEmailRequest;
-import com.ost.matie.exception.ExpirationException;
+import com.ost.matie.exception.EmailCodeExpiredException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
@@ -35,7 +35,7 @@ public class EmailService {
 
     public void getCode(String email, String code) {
         String codeFoundByEmail = redisUtil.getData(email);
-        if(codeFoundByEmail == null || !codeFoundByEmail.equals(code)) throw new ExpirationException("유효한 코드를 찾을 수 없습니다.");
+        if(codeFoundByEmail == null || !codeFoundByEmail.equals(code)) throw EmailCodeExpiredException.EXCEPTION;
     }
 
     private String createCode() {

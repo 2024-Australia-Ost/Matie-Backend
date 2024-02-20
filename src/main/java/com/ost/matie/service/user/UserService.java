@@ -4,8 +4,10 @@ import com.ost.matie.domain.user.Users;
 import com.ost.matie.dto.user.AddUserRequest;
 import com.ost.matie.dto.user.LoginUserRequest;
 import com.ost.matie.dto.user.UpdateUserRequest;
-import com.ost.matie.exception.DuplicateException;
-import com.ost.matie.exception.NotFoundException;
+import com.ost.matie.exception.EmailDuplicateException;
+import com.ost.matie.exception.UserIdDuplicateException;
+import com.ost.matie.exception.UserIncorrectException;
+import com.ost.matie.exception.UserNotFoundException;
 import com.ost.matie.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -28,25 +30,25 @@ public class UserService {
     }
 
     public void duplicateEmail(String email) {
-        if(userRepository.existsByEmail(email)) throw new DuplicateException("email", "Email already exists, use another email address or login");
+        if(userRepository.existsByEmail(email)) throw EmailDuplicateException.EXCEPTION;
     }
 
     public void duplicateUserId(String userId) {
-        if(userRepository.existsByUserId(userId)) throw new DuplicateException("userId", "ID already exists, use another ID");
+        if(userRepository.existsByUserId(userId)) throw UserIdDuplicateException.EXCEPTION;
     }
 
     public Users findById(Long id) {
-        return userRepository.findById(id).orElseThrow(() -> new NotFoundException("사용자를 찾을 수 없습니다. (id : " + id + ")"));
+        return userRepository.findById(id).orElseThrow(() -> UserNotFoundException.EXCEPTION);
     }
 
     public Users login(LoginUserRequest request) {
         Users users = userRepository.findByUserIdOrEmail(request.getUserId(), request.getUserId());
-        if(users == null || !bCryptPasswordEncoder.matches(request.getPw(), users.getPw())) throw new NotFoundException("Check your email/id or password");
+        if(users == null || !bCryptPasswordEncoder.matches(request.getPw(), users.getPw())) throw UserIncorrectException.EXCEPTION;
         return users;
     }
 
     public void delete(Long id) {
-        if(!userRepository.existsById(id)) throw new NotFoundException("사용자를 찾을 수 없습니다. (id : " + id + ")");
+        if(!userRepository.existsById(id)) throw UserNotFoundException.EXCEPTION;
         userRepository.deleteById(id);
     }
 
