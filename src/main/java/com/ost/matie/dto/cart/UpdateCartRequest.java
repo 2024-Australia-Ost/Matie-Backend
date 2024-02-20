@@ -10,9 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Getter
 public class UpdateCartRequest {
-    @NotNull(message = "상품 갯수 리스트를 넣어주세요.")
+    @NotNull(message = "상품의 갯수를 적어주세요.")
     private Long count;
-
-    @NotNull(message = "상품 리스트를 넣어주세요.")
-    private Product product;
 }

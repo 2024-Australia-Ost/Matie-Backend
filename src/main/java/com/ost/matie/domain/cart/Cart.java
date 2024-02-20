@@ -35,8 +35,7 @@ public class Cart {
         this.user = user;
     }
 
-    public void update(Long count, Product product) {
+    public void update(Long count) {
         this.count = count;
-        this.product = product;
     }
 }
