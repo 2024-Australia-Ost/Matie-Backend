@@ -8,7 +8,6 @@ import com.ost.matie.domain.comment.Comment;
 import com.ost.matie.domain.community.Community;
 import com.ost.matie.domain.favorite_product.FavoriteProduct;
 import com.ost.matie.domain.point.Point;
-import com.ost.matie.domain.walk.Walk;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -54,10 +53,6 @@ public class Users extends BaseTimeEntity {
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
     private List<FavoriteProduct> favoriteProductList;
-
-    @JsonIgnore
-    @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
-    private List<Walk> walkList;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)

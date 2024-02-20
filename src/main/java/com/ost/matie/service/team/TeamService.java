@@ -2,7 +2,8 @@ package com.ost.matie.service.team;
 
 import com.ost.matie.domain.team.Team;
 import com.ost.matie.dto.team.UpdateTeamRequest;
-import com.ost.matie.exception.NotFoundException;
+import com.ost.matie.exception.TeamNotFoundException;
+import com.ost.matie.exception.UserNotFoundException;
 import com.ost.matie.repository.team.TeamRepository;
 import com.ost.matie.repository.user.UserRepository;
 import jakarta.transaction.Transactional;
@@ -34,10 +35,10 @@ public class TeamService {
     @Transactional
     public Team update(Long id, UpdateTeamRequest request) {
         Team team = teamRepository.findById(id)
-                .orElseThrow(() -> new NotFoundException("그룹 챌린지 정보를 찾을 수 없습니다. (id : " + id + ")"));
+                .orElseThrow(() -> TeamNotFoundException.EXCEPTION);
 
         for(Long userId : request.getUserList())
-            if(!userRepository.existsById(userId)) throw new NotFoundException("사용자 정보를 찾을 수 없습니다. (id : " + userId + ")");
+            if(!userRepository.existsById(userId)) throw UserNotFoundException.EXCEPTION;
 
         team.update(request.getUserList());
 
