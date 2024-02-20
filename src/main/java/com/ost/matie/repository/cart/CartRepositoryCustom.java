@@ -2,6 +2,8 @@ package com.ost.matie.repository.cart;
 
 import com.ost.matie.domain.cart.Cart;
 
+import java.util.List;
+
 public interface CartRepositoryCustom {
-    Cart findByUserId(Long userId);
+    List<Cart> findByUserId(Long userId);
 }

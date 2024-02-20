@@ -1,38 +1,40 @@
 package com.ost.matie.controller.cart;
 
-import com.ost.matie.domain.cart.Cart;
 import com.ost.matie.dto.cart.AddCartRequest;
 import com.ost.matie.dto.cart.CartResponse;
 import com.ost.matie.dto.cart.UpdateCartRequest;
-import com.ost.matie.service.cart.CartService;
-import com.ost.matie.service.user.UserService;
+import com.ost.matie.service.cart.CreateCartService;
+import com.ost.matie.service.cart.FindByUserIdCartService;
+import com.ost.matie.service.cart.UpdateCartService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/cart")
 public class CartController {
-    private final CartService cartService;
-    private final UserService userService;
+    private final CreateCartService createCartService;
+    private final FindByUserIdCartService findByUserIdCartService;
+    private final UpdateCartService updateCartService;
 
-    @GetMapping("/cart/{userId}")
-    public ResponseEntity<CartResponse> findByUserIdCart(@PathVariable Long userId) {
-        userService.findById(userId);
-
-        Cart cart = cartService.findByUserId(userId);
-
-        return ResponseEntity.ok()
-                .body(new CartResponse(cart));
+    @PostMapping
+    public void createCart(@Valid @RequestBody AddCartRequest request) {
+        createCartService.execute(request);
     }
 
-    @PutMapping("/cart/{userId}")
-    public ResponseEntity<CartResponse> updateCart(@PathVariable Long userId,
-                                           @RequestBody UpdateCartRequest request) {
-        userService.findById(userId);
-        Cart cart = cartService.update(userId, request);
-        return ResponseEntity.ok().body(new CartResponse(cart));
+    @GetMapping("/{userId}")
+    public List<CartResponse> findByUserIdCart(@PathVariable Long userId) {
+        return findByUserIdCartService.execute(userId);
+    }
+
+    @PutMapping("/{id}")
+    public void updateCart(
+            @PathVariable Long id,
+            @Valid @RequestBody UpdateCartRequest request
+    ) {
+        updateCartService.execute(id, request);
     }
 }
