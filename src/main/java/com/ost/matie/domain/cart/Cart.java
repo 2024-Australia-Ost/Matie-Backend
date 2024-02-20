@@ -1,14 +1,12 @@
 package com.ost.matie.domain.cart;
 
-import com.ost.matie.config.LongListConverter;
+import com.ost.matie.domain.product.Product;
 import com.ost.matie.domain.user.Users;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Entity
 @Getter
@@ -19,25 +17,26 @@ public class Cart {
     @Column(name = "id", updatable = false)
     private Long id;
 
-    @Convert(converter = LongListConverter.class)
-    private List<Long> count;
+    @Column(name = "count")
+    private Long count;
 
-    @Convert(converter = LongListConverter.class)
-    private List<Long> products;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users user;
 
     @Builder
-    public Cart(List<Long> count, List<Long> products, Users user) {
+    public Cart(Long count, Product product, Users user) {
         this.count = count;
-        this.products = products;
+        this.product = product;
         this.user = user;
     }
 
-    public void update(List<Long> count, List<Long> products) {
+    public void update(Long count, Product product) {
         this.count = count;
-        this.products = products;
+        this.product = product;
     }
 }
