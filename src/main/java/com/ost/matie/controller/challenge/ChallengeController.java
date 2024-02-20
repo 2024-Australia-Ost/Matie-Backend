@@ -1,46 +1,37 @@
 package com.ost.matie.controller.challenge;
 
-import com.ost.matie.domain.challenge.Challenge;
 import com.ost.matie.dto.challenge.ChallengeResponse;
-import com.ost.matie.service.challenge.ChallengeService;
+import com.ost.matie.service.challenge.FindAllByTypeChallengesService;
+import com.ost.matie.service.challenge.FindAllChallengesService;
+import com.ost.matie.service.challenge.FindChallengeService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/challenge")
 public class ChallengeController {
-    private final ChallengeService challengeService;
+    private final FindAllChallengesService findAllChallengesService;
+    private final FindAllByTypeChallengesService findAllByTypeChallengesService;
+    private final FindChallengeService findChallengeService;
 
-    @GetMapping("/challenge")
-    public ResponseEntity<List<ChallengeResponse>> findAllChallenge() {
-        List<ChallengeResponse> challengeResponses = challengeService.findAll()
-                .stream()
-                .map(ChallengeResponse::new)
-                .toList();
-
-        return ResponseEntity.ok().body(challengeResponses);
+    @GetMapping
+    public List<ChallengeResponse> findAllChallenges() {
+        return findAllChallengesService.execute();
     }
 
-    @GetMapping("/challenge/type/{type}")
-    public ResponseEntity<List<ChallengeResponse>> findAllByTypeChallenge(@PathVariable Integer type) {
-        List<ChallengeResponse> challengeResponses = challengeService.findAllByChallenge(type)
-                .stream()
-                .map(ChallengeResponse::new)
-                .toList();
-
-        return ResponseEntity.ok().body(challengeResponses);
+    @GetMapping("/type/{type}")
+    public List<ChallengeResponse> findAllByTypeChallenges(@PathVariable Integer type) {
+        return findAllByTypeChallengesService.execute(type);
     }
 
-    @GetMapping("/challenge/{id}")
-    public ResponseEntity<ChallengeResponse> findChallenge(@PathVariable Long id) {
-        Challenge challenge = challengeService.findById(id);
-
-        return ResponseEntity.ok()
-                .body(new ChallengeResponse(challenge));
+    @GetMapping("/{id}")
+    public ChallengeResponse findChallenge(@PathVariable Long id) {
+        return findChallengeService.execute(id);
     }
 }
