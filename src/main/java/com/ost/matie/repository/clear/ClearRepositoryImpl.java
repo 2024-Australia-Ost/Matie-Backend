@@ -22,14 +22,4 @@ public class ClearRepositoryImpl implements ClearRepositoryCustom {
                 .where(clear.user.id.eq(userId))
                 .fetch();
     }
-
-    @Override
-    public Clear findByUserIdAndDate(Long userId, LocalDate date) {
-        return queryFactory
-                .selectFrom(clear)
-                .where(clear.user.id.eq(userId)
-                        .and(clear.date.eq(date))
-                )
-                .fetchOne();
-    }
 }

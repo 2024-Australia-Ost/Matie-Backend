@@ -1,7 +1,8 @@
 package com.ost.matie.domain.team;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ost.matie.config.LongListConverter;
-import com.ost.matie.domain.image.Image;
+import com.ost.matie.domain.clear.Clear;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -36,6 +37,10 @@ public class Team {
 
     @Convert(converter = LongListConverter.class)
     private List<Long> userList;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "team", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<Clear> clearList;
 
     public void update(List<Long> userList) {
         this.userList = userList;
