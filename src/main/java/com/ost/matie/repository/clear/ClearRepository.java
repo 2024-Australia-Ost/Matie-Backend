@@ -6,5 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.time.LocalDate;
 
 public interface ClearRepository extends JpaRepository<Clear, Long>, ClearRepositoryCustom {
-    boolean existsByUserIdAndDate(Long userId, LocalDate date);
+    boolean existsByUserIdAndTeamIdAndChallengeIdAndDate(Long userId, Long teamId, Long challengeId, LocalDate now);
 }

@@ -14,7 +14,7 @@ public enum ErrorCode {
     USER_DUPLICATE(HttpStatus.CONFLICT, "아이디 또는 이메일이 중복되었습니다."),
     EMAIL_DUPLICATE(HttpStatus.CONFLICT, "Email already exists, use another email address or login"),
     USERID_DUPLICATE(HttpStatus.CONFLICT, "ID already exists, use another ID"),
-    USER_CLEAR_DUPLICATE(HttpStatus.CONFLICT, "이미 해당 유저의 클리어 여부가 존재합니다. update를 해주세요."),
+    USER_CLEAR_DUPLICATE(HttpStatus.CONFLICT, "이미 해당 유저의 클리어 여부가 존재합니다."),
 
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자를 찾을 수 없습니다."),
     TYPE_NOT_FOUND(HttpStatus.NOT_FOUND, "type은 1, 2, 3, 4만 찾을 수 있습니다."),

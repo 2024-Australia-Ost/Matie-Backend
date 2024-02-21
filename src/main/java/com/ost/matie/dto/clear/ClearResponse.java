@@ -1,19 +1,19 @@
 package com.ost.matie.dto.clear;
 
+import com.ost.matie.domain.challenge.Challenge;
 import com.ost.matie.domain.clear.Clear;
-import com.ost.matie.domain.user.Users;
+import com.ost.matie.domain.team.Team;
 import com.ost.matie.dto.user.UserResponse;
 import lombok.Getter;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @Getter
 public class ClearResponse {
     private final Long id;
     private final LocalDate date;
-    private final List<Long> challenge;
-    private final List<Long> team;
+    private final Challenge challenge;
+    private final Team team;
     private final UserResponse user;
 
     public ClearResponse(Clear clear) {
