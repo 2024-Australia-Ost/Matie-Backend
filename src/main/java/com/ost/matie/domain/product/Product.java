@@ -1,6 +1,5 @@
 package com.ost.matie.domain.product;
 
-import com.ost.matie.domain.category.Category;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;

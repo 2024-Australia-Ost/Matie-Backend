@@ -57,8 +57,8 @@ INSERT INTO community (title, description, type, agree, disagree, created_date, 
 INSERT INTO community (title, description, type, agree, disagree, created_date, user_id) VALUES ('Are you in favor of cap-and-trade?', 'in favor of it. Greenhouse gases are a major contributor to our environmental degradation and the', 'Debate', 132, 230, '2023-10-20 00:00:00', 1);
 INSERT INTO community (title, description, type, agree, disagree, created_date, user_id) VALUES ('Are you in favor of cap-and-trade?', 'in favor of it. Greenhouse gases are a major contributor to our environmental degradation and the', 'Debate', 132, 230, '2023-10-20 00:00:00', 1);
 
-INSERT INTO comments (description, user_id, community_id, created_date, upvote_user_list) VALUES ('I think right about that.', 1, 1, '2023-10-20 00:00:00', '');
-INSERT INTO comments (description, user_id, community_id, created_date, upvote_user_list) VALUES ('amazing!', 1, 1, '2023-10-20 00:00:00', '');
-INSERT INTO comments (description, user_id, community_id, created_date, upvote_user_list) VALUES ('really?', 1, 1, '2023-10-20 00:00:00', '');
-INSERT INTO comments (description, user_id, community_id, created_date, upvote_user_list) VALUES ('very good!', 1, 1, '2023-10-20 00:00:00', '');
-INSERT INTO comments (description, user_id, community_id, created_date, upvote_user_list) VALUES ('awesome!', 1, 1, '2023-10-20 00:00:00', '');
+INSERT INTO comments (description, user_id, community_id, created_date) VALUES ('I think right about that.', 1, 1, '2023-10-20 00:00:00');
+INSERT INTO comments (description, user_id, community_id, created_date) VALUES ('amazing!', 1, 1, '2023-10-20 00:00:00');
+INSERT INTO comments (description, user_id, community_id, created_date) VALUES ('really?', 1, 1, '2023-10-20 00:00:00');
+INSERT INTO comments (description, user_id, community_id, created_date) VALUES ('awesome!', 1, 1, '2023-10-20 00:00:00');
+INSERT INTO comments (description, user_id, community_id, created_date) VALUES ('very good!', 1, 1, '2023-10-20 00:00:00');

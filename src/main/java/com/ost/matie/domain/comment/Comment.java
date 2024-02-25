@@ -1,6 +1,6 @@
 package com.ost.matie.domain.comment;
 
-import com.ost.matie.config.LongListConverter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ost.matie.domain.BaseTimeEntity;
 import com.ost.matie.domain.community.Community;
 import com.ost.matie.domain.user.Users;
@@ -25,12 +25,6 @@ public class Comment extends BaseTimeEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "upvotes")
-    private Long upvotes;
-
-    @Convert(converter = LongListConverter.class)
-    private List<Long> upvoteUserList;
-
     @ManyToOne
     @JoinColumn(name = "user_id")
     private Users user;
@@ -39,18 +33,18 @@ public class Comment extends BaseTimeEntity {
     @JoinColumn(name = "community_id")
     private Community community;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "comment", cascade = {CascadeType.REFRESH, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST}, orphanRemoval = true)
+    private List<Upvote> upvoteList;
+
     @Builder
-    public Comment(String description, Long upvotes, List<Long> upvoteUserList, Users user, Community community) {
+    public Comment(String description, Users user, Community community) {
         this.description = description;
-        this.upvotes = upvotes;
-        this.upvoteUserList = upvoteUserList;
         this.user = user;
         this.community = community;
     }
 
-    public void update(String description, Long upvotes, List<Long> upvoteUserList) {
+    public void update(String description) {
         this.description = description;
-        this.upvotes = upvotes;
-        this.upvoteUserList = upvoteUserList;
     }
 }

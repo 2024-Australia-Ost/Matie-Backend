@@ -1,6 +1,6 @@
 package com.ost.matie.dto.product;
 
-import com.ost.matie.domain.category.Category;
+import com.ost.matie.domain.product.Category;
 import com.ost.matie.domain.product.Product;
 import lombok.Getter;
 

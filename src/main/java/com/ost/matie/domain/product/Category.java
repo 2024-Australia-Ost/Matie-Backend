@@ -1,4 +1,4 @@
-package com.ost.matie.domain.category;
+package com.ost.matie.domain.product;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.ost.matie.domain.product.Product;

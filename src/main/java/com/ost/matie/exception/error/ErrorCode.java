@@ -15,6 +15,7 @@ public enum ErrorCode {
     EMAIL_DUPLICATE(HttpStatus.CONFLICT, "Email already exists, use another email address or login"),
     USERID_DUPLICATE(HttpStatus.CONFLICT, "ID already exists, use another ID"),
     USER_CLEAR_DUPLICATE(HttpStatus.CONFLICT, "이미 해당 유저의 클리어 여부가 존재합니다."),
+    UPVOTE_DUPLICATE(HttpStatus.CONFLICT, "이미 좋아요를 클릭하셨습니다."),
 
     USER_NOT_FOUND(HttpStatus.NOT_FOUND, "사용자를 찾을 수 없습니다."),
     TYPE_NOT_FOUND(HttpStatus.NOT_FOUND, "type은 1, 2, 3, 4만 찾을 수 있습니다."),
@@ -26,6 +27,7 @@ public enum ErrorCode {
     CATEGORY_NOT_FOUND(HttpStatus.NOT_FOUND, "카테고리의 정보를 찾을 수 없습니다."),
     CHALLENGE_NOT_FOUND(HttpStatus.NOT_FOUND, "챌린지의 정보를 찾을 수 없습니다."),
     CART_NOT_FOUND(HttpStatus.NOT_FOUND, "장바구니의 정보를 찾을 수 없습니다."),
+    UPVOTE_NOT_FOUND(HttpStatus.NOT_FOUND, "좋아요를 누른 정보를 찾을 수 없습니다."),
 
     INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "Internal Server Error");
 
